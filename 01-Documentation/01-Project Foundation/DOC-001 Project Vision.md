@@ -7,7 +7,7 @@
 | **Project Name**   | Gym ERP        |
 | **Version**        | 1.0            |
 | **Status**         | Approved       |
-| **Project Owners** | Khizer & Ahad  |
+| **Project Owners** | Khizer & Abdul |
 | **Created Date**   | 22 July 2026   |
 | **Last Updated**   | 22 July 2026   |
 
