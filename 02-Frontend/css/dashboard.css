@@ -1,0 +1,360 @@
+/* Commercial Dashboard Layout & Component Styles */
+
+.dashboard-view-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+/* Header Greeting Section */
+.dashboard-header-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dashboard-title-area h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: var(--text-main);
+}
+
+.dashboard-title-area p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.header-action-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.date-range-badge {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 8px 14px;
+    border-radius: var(--radius-md);
+    font-size: 0.84rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.action-btn-secondary {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 10px 16px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all var(--transition-fast);
+}
+.action-btn-secondary:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-glass);
+}
+
+.action-btn-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+    border: none;
+    color: #080C14;
+    padding: 10px 18px;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: var(--shadow-glow);
+    transition: all var(--transition-fast);
+}
+.action-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+}
+
+/* 1. Summary Cards Grid (5 Cards) */
+.summary-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.summary-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-fast);
+}
+
+.summary-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-highlight);
+    box-shadow: var(--shadow-md);
+}
+
+.summary-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.card-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.card-icon-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.summary-card.total-members .card-icon-avatar { background: rgba(59, 130, 246, 0.12); color: var(--accent-blue); }
+.summary-card.active-members .card-icon-avatar { background: rgba(16, 185, 129, 0.12); color: var(--primary); }
+.summary-card.today-attendance .card-icon-avatar { background: rgba(6, 182, 212, 0.12); color: var(--accent-cyan); }
+.summary-card.expiring-memberships .card-icon-avatar { background: rgba(245, 158, 11, 0.12); color: var(--accent-amber); }
+.summary-card.monthly-revenue .card-icon-avatar { background: rgba(139, 92, 246, 0.12); color: var(--accent-purple); }
+
+.card-value {
+    font-size: 1.85rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: var(--text-main);
+    line-height: 1.1;
+    margin-bottom: 8px;
+}
+
+.card-trend-footer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+}
+
+.trend-pill {
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.trend-pill.up { background: rgba(16, 185, 129, 0.15); color: var(--primary); }
+.trend-pill.warning { background: rgba(245, 158, 11, 0.15); color: var(--accent-amber); }
+.trend-pill.down { background: rgba(239, 68, 68, 0.15); color: var(--accent-red); }
+
+.trend-subtext {
+    color: var(--text-subtle);
+}
+
+/* 2. Charts Grid Layout */
+.charts-layout-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.chart-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.chart-title-box h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+.chart-title-box p {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.chart-filter-pills {
+    display: flex;
+    gap: 6px;
+    background: var(--bg-surface);
+    padding: 4px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.chart-filter-btn {
+    padding: 4px 10px;
+    font-size: 0.76rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    color: var(--text-muted);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+.chart-filter-btn.active {
+    background: var(--bg-card);
+    color: var(--primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.canvas-container {
+    position: relative;
+    width: 100%;
+    height: 260px;
+}
+
+canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Two Column Bottom Grid */
+.dashboard-bottom-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.section-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-header-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+.section-header-flex h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.view-all-link {
+    font-size: 0.8rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+.view-all-link:hover { text-decoration: underline; }
+
+/* Activity Stream List */
+.activity-feed-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    border-radius: var(--radius-md);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    transition: border-color var(--transition-fast);
+}
+.activity-item:hover {
+    border-color: var(--border-glass);
+}
+
+.activity-user-img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--bg-card-hover);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.activity-details {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.activity-title {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--text-main);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.activity-sub {
+    font-size: 0.74rem;
+    color: var(--text-subtle);
+}
+
+.activity-time-badge {
+    font-size: 0.72rem;
+    color: var(--text-subtle);
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+/* Responsiveness */
+@media (max-width: 1400px) {
+    .summary-cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .charts-layout-grid {
+        grid-template-columns: 1fr;
+    }
+    .dashboard-bottom-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 900px) {
+    .summary-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

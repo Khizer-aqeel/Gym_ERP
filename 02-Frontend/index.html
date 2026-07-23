@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym ERP - Commercial Gym Management System | Khizer & Ahad</title>
+    
+    <!-- Design System CSS Stylesheets -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/modules.css">
+</head>
+<body>
+
+    <div id="app-root">
+
+        <!-- ==========================================
+             1. LOGIN SCREEN (ACTIVE BY DEFAULT)
+        =========================================== -->
+        <section id="view-login" class="view-container active">
+            <div class="login-page-wrapper">
+                
+                <!-- Left Hero Showcase Panel -->
+                <div class="login-hero-panel">
+                    <div class="login-hero-overlay"></div>
+                    
+                    <div class="hero-branding-header">
+                        <div class="hero-logo-box">⚡</div>
+                        <div class="hero-brand-titles">
+                            <h1>GYM ERP</h1>
+                            <span>Next-Gen Gym Operating System</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-center-copy">
+                        <h2 class="hero-tagline">Empowering Commercial Gyms & Fitness Clubs.</h2>
+                        <p class="hero-description">
+                            Streamline member subscriptions, automated check-ins, staff management, revenue tracking, and equipment analytics in one powerful enterprise platform.
+                        </p>
+
+                        <div class="hero-features-grid">
+                            <div class="hero-feature-card">
+                                <div class="feature-icon-box">⚡</div>
+                                <div class="feature-text">
+                                    <h4>Instant RFID Check-In</h4>
+                                    <p>Sub-second badge & mobile QR scanning</p>
+                                </div>
+                            </div>
+                            <div class="hero-feature-card">
+                                <div class="feature-icon-box">📈</div>
+                                <div class="feature-text">
+                                    <h4>Real-Time MRR Analytics</h4>
+                                    <p>Live revenue tracking & growth insights</p>
+                                </div>
+                            </div>
+                            <div class="hero-feature-card">
+                                <div class="feature-icon-box">👥</div>
+                                <div class="feature-text">
+                                    <h4>Member Lifecycle</h4>
+                                    <p>Automated renewals & trainer scheduling</p>
+                                </div>
+                            </div>
+                            <div class="hero-feature-card">
+                                <div class="feature-icon-box">🛡️</div>
+                                <div class="feature-text">
+                                    <h4>Multi-Role Security</h4>
+                                    <p>Custom permissions for staff & owners</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-footer-owners">
+                        <div class="owners-badge">
+                            <div class="owners-avatars">
+                                <div class="owner-avatar-circle">K</div>
+                                <div class="owner-avatar-circle">A</div>
+                            </div>
+                            <div class="owners-text">
+                                System Owners: <strong>Khizer & Ahad</strong>
+                            </div>
+                        </div>
+                        <span style="font-size: 0.78rem; color: var(--text-subtle);">v2.4 Enterprise Edition</span>
+                    </div>
+                </div>
+
+                <!-- Right Interactive Login Panel -->
+                <div class="login-form-panel">
+                    <div class="login-card">
+                        
+                        <div class="login-header-text">
+                            <h2>Welcome Back</h2>
+                            <p>Sign in to access your gym management dashboard</p>
+                        </div>
+
+                        <!-- Demo Credential Autofill Pills -->
+                        <div class="demo-preset-section">
+                            <div class="demo-preset-title">Quick Demo Login Presets</div>
+                            <div class="preset-buttons-flex">
+                                <button type="button" class="preset-btn" onclick="Auth.fillPreset('khizer')">👑 Khizer (Owner)</button>
+                                <button type="button" class="preset-btn" onclick="Auth.fillPreset('ahad')">💼 Ahad (Manager)</button>
+                                <button type="button" class="preset-btn" onclick="Auth.fillPreset('receptionist')">🛎️ Reception Desk</button>
+                            </div>
+                        </div>
+
+                        <form id="login-form" class="login-form">
+                            <div class="form-group">
+                                <label class="form-label" for="login-email">Email or Username</label>
+                                <div class="input-wrapper">
+                                    <span class="input-icon-left">👤</span>
+                                    <input type="text" id="login-email" class="form-input" placeholder="khizer@gymerp.com" value="khizer@gymerp.com" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="login-password">
+                                    Password
+                                </label>
+                                <div class="input-wrapper">
+                                    <span class="input-icon-left">🔒</span>
+                                    <input type="password" id="login-password" class="form-input" placeholder="••••••••••••" value="password123" required>
+                                    <span class="input-icon-toggle" onclick="const p = document.getElementById('login-password'); p.type = p.type === 'password' ? 'text' : 'password';">👁️</span>
+                                </div>
+                            </div>
+
+                            <div class="form-options-row">
+                                <label class="remember-me-checkbox">
+                                    <input type="checkbox" id="remember-me" checked>
+                                    <span>Remember session</span>
+                                </label>
+                                <a href="#" class="forgot-password-link" onclick="alert('Password reset link sent to admin registered email!')">Forgot Password?</a>
+                            </div>
+
+                            <button type="submit" id="submit-login-btn" class="submit-login-btn">
+                                <span>Sign In to Gym ERP</span>
+                                <span>→</span>
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==========================================
+             2. MAIN APPLICATION SHELL & DASHBOARD
+        =========================================== -->
+        <section id="view-app" class="view-container">
+            <div class="app-layout">
+                
+                <!-- Left Sidebar Navigation -->
+                <aside id="main-sidebar" class="sidebar">
+                    <div>
+                        <div class="sidebar-header">
+                            <a href="#" class="brand-logo-container">
+                                <div class="brand-icon">⚡</div>
+                                <div class="brand-info">
+                                    <span class="brand-name">Gym ERP</span>
+                                    <span class="brand-sub">IronPulse Main</span>
+                                </div>
+                            </a>
+                            <button id="sidebar-toggle" class="sidebar-toggle-btn" title="Toggle Sidebar">◀</button>
+                        </div>
+
+                        <nav class="sidebar-nav">
+                            <a href="#" class="nav-item active" data-tab="dashboard">
+                                <span class="nav-icon">📊</span>
+                                <span class="nav-text">Dashboard</span>
+                            </a>
+                            <a href="#" class="nav-item" data-tab="members">
+                                <span class="nav-icon">👥</span>
+                                <span class="nav-text">Members</span>
+                                <span class="nav-badge">1,248</span>
+                            </a>
+                            <a href="#" class="nav-item" data-tab="trainers">
+                                <span class="nav-icon">🏋️</span>
+                                <span class="nav-text">Trainers</span>
+                            </a>
+                            <a href="#" class="nav-item" data-tab="attendance">
+                                <span class="nav-icon">📅</span>
+                                <span class="nav-text">Attendance</span>
+                                <span class="nav-badge">142</span>
+                            </a>
+                            <a href="#" class="nav-item" data-tab="plans">
+                                <span class="nav-icon">💳</span>
+                                <span class="nav-text">Membership Plans</span>
+                            </a>
+                            <a href="#" class="nav-item" data-tab="payments">
+                                <span class="nav-icon">💰</span>
+                                <span class="nav-text">Payments</span>
+                                <span class="nav-badge urgent">14 Due</span>
+                            </a>
+                            <a href="#" class="nav-item" data-tab="equipment">
+                                <span class="nav-icon">⚙️</span>
+                                <span class="nav-text">Equipment</span>
+                            </a>
+                            <a href="#" class="nav-item" data-tab="reports">
+                                <span class="nav-icon">📈</span>
+                                <span class="nav-text">Reports</span>
+                            </a>
+                            <a href="#" class="nav-item" data-tab="settings">
+                                <span class="nav-icon">🛠️</span>
+                                <span class="nav-text">Settings</span>
+                            </a>
+                        </nav>
+                    </div>
+
+                    <div class="sidebar-footer">
+                        <button class="quick-checkin-btn trigger-quick-checkin">
+                            <span>🔍</span>
+                            <span class="nav-text">Quick Check-In</span>
+                        </button>
+                    </div>
+                </aside>
+
+                <!-- Main Content Area -->
+                <main class="main-content">
+                    
+                    <!-- Topbar Header Navigation -->
+                    <header class="topbar">
+                        <div class="topbar-left">
+                            <div class="global-search">
+                                <span class="search-icon">🔍</span>
+                                <input type="text" id="global-search-input" class="search-input" placeholder="Search members, trainers, invoice ID...">
+                                <span class="search-shortcut">Ctrl K</span>
+                            </div>
+                        </div>
+
+                        <div class="topbar-right">
+                            
+                            <!-- Live Gym Status Indicator -->
+                            <div class="live-status-pill">
+                                <span class="live-dot"></span>
+                                <span>Live Gym Floor: <strong>18 Active</strong></span>
+                            </div>
+
+                            <!-- Dark/Light Theme Toggle -->
+                            <button id="theme-toggle-btn" class="topbar-icon-btn" title="Toggle Theme">☀️</button>
+
+                            <!-- Notifications Dropdown Trigger -->
+                            <div style="position: relative;">
+                                <button id="btn-notifications" class="topbar-icon-btn" title="Notifications">
+                                    🔔
+                                    <span class="notification-badge"></span>
+                                </button>
+                                
+                                <div id="notifications-popover" class="modal-box" style="position: absolute; right: 0; top: 48px; width: 340px; display: none; padding: 18px; z-index: 90;">
+                                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                                        <h4 style="font-size: 0.9rem; font-weight: 700; color: var(--text-main);">Notifications</h4>
+                                        <span style="font-size: 0.72rem; color: var(--primary); font-weight: 600;">Mark all read</span>
+                                    </div>
+                                    <div class="activity-feed-list">
+                                        <div class="activity-item">
+                                            <div class="activity-user-img">⚠️</div>
+                                            <div class="activity-details">
+                                                <div class="activity-title">14 Expiring Memberships</div>
+                                                <div class="activity-sub">Action required within 7 days</div>
+                                            </div>
+                                        </div>
+                                        <div class="activity-item">
+                                            <div class="activity-user-img">🎉</div>
+                                            <div class="activity-details">
+                                                <div class="activity-title">MRR Target Reached</div>
+                                                <div class="activity-sub">$48,650 monthly revenue</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Quick Action Add Button -->
+                            <button class="action-btn-primary trigger-quick-checkin">
+                                <span>+</span>
+                                <span>Quick Check-In</span>
+                            </button>
+
+                            <!-- Current User Profile Pill -->
+                            <div class="user-profile-menu">
+                                <div id="nav-user-avatar" class="user-avatar">K</div>
+                                <div class="user-info-text">
+                                    <span id="nav-user-name" class="user-name">Khizer</span>
+                                    <span id="nav-user-role" class="user-role">Owner & Admin</span>
+                                </div>
+                            </div>
+
+                            <!-- Logout Button -->
+                            <button id="nav-logout-btn" class="logout-btn-nav" title="Logout">
+                                🚪 Logout
+                            </button>
+                        </div>
+                    </header>
+
+                    <!-- Scrollable Dynamic Page Subviews -->
+                    <div class="content-body">
+                        
+                        <!-- ---------------------------------------
+                             SUBVIEW 1: DASHBOARD (DEFAULT ACTIVE)
+                        ---------------------------------------- -->
+                        <div id="subview-dashboard" class="app-subview" style="display: block;">
+                            <div class="dashboard-view-wrapper">
+                                
+                                <!-- Header Title Row -->
+                                <div class="dashboard-header-flex">
+                                    <div class="dashboard-title-area">
+                                        <h2>Gym Performance Dashboard</h2>
+                                        <p>Real-time analytics for <strong>IronPulse Fitness Club</strong> • System Owners: <strong>Khizer & Ahad</strong></p>
+                                    </div>
+                                    <div class="header-action-group">
+                                        <div class="date-range-badge">📅 Today: July 23, 2026</div>
+                                        <button class="action-btn-secondary" onclick="window.GymCharts.init()">🔄 Refresh Data</button>
+                                    </div>
+                                </div>
+
+                                <!-- 1. Summary Cards (5 Key Metrics) -->
+                                <div class="summary-cards-grid">
+                                    
+                                    <div class="summary-card total-members">
+                                        <div class="summary-card-top">
+                                            <span class="card-label">Total Members</span>
+                                            <div class="card-icon-avatar">👥</div>
+                                        </div>
+                                        <div class="card-value">1,248</div>
+                                        <div class="card-trend-footer">
+                                            <span class="trend-pill up">↑ +12.4%</span>
+                                            <span class="trend-subtext">vs last month</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="summary-card active-members">
+                                        <div class="summary-card-top">
+                                            <span class="card-label">Active Members</span>
+                                            <div class="card-icon-avatar">✅</div>
+                                        </div>
+                                        <div class="card-value">1,085</div>
+                                        <div class="card-trend-footer">
+                                            <span class="trend-pill up">87% Active</span>
+                                            <span class="trend-subtext">High retention</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="summary-card today-attendance">
+                                        <div class="summary-card-top">
+                                            <span class="card-label">Today's Attendance</span>
+                                            <div class="card-icon-avatar">⚡</div>
+                                        </div>
+                                        <div id="kpi-today-attendance" class="card-value">142</div>
+                                        <div class="card-trend-footer">
+                                            <span class="trend-pill up">18 On Floor</span>
+                                            <span class="trend-subtext">Peak: 6 PM</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="summary-card expiring-memberships">
+                                        <div class="summary-card-top">
+                                            <span class="card-label">Expiring Soon</span>
+                                            <div class="card-icon-avatar">⚠️</div>
+                                        </div>
+                                        <div class="card-value">14</div>
+                                        <div class="card-trend-footer">
+                                            <span class="trend-pill warning">Within 7 Days</span>
+                                            <span class="trend-subtext">Reminders sent</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="summary-card monthly-revenue">
+                                        <div class="summary-card-top">
+                                            <span class="card-label">Monthly Revenue</span>
+                                            <div class="card-icon-avatar">💵</div>
+                                        </div>
+                                        <div class="card-value">$48,650</div>
+                                        <div class="card-trend-footer">
+                                            <span class="trend-pill up">↑ +18.4%</span>
+                                            <span class="trend-subtext">Target: $45,000</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- 2. Visual Analytics & Charts Section -->
+                                <div class="charts-layout-grid">
+                                    
+                                    <div class="chart-card">
+                                        <div class="chart-header">
+                                            <div class="chart-title-box">
+                                                <h3>Attendance Density & Peak Hours Overview</h3>
+                                                <p>Hourly floor capacity & check-in distribution pattern</p>
+                                            </div>
+                                            <div class="chart-filter-pills">
+                                                <button class="chart-filter-btn active">Today</button>
+                                                <button class="chart-filter-btn">Weekly</button>
+                                                <button class="chart-filter-btn">Monthly</button>
+                                            </div>
+                                        </div>
+                                        <div class="canvas-container">
+                                            <canvas id="chart-attendance"></canvas>
+                                        </div>
+                                    </div>
+
+                                    <div class="chart-card">
+                                        <div class="chart-header">
+                                            <div class="chart-title-box">
+                                                <h3>Membership Tier Breakdown</h3>
+                                                <p>Distribution of active members by plan</p>
+                                            </div>
+                                        </div>
+                                        <div class="canvas-container">
+                                            <canvas id="chart-growth"></canvas>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- 3. Recent Activity & Operations Feed -->
+                                <div class="dashboard-bottom-grid">
+                                    
+                                    <div class="section-card">
+                                        <div class="section-header-flex">
+                                            <h3>⚡ Live Attendance Stream</h3>
+                                            <a href="#" class="view-all-link" onclick="GymApp.switchTab('attendance')">View All</a>
+                                        </div>
+                                        <div id="dashboard-activity-list" class="activity-feed-list">
+                                            <!-- Dynamic Feed Injected via JS -->
+                                        </div>
+                                    </div>
+
+                                    <div class="section-card">
+                                        <div class="section-header-flex">
+                                            <h3>👥 Latest Registrations</h3>
+                                            <a href="#" class="view-all-link" onclick="GymApp.switchTab('members')">View All</a>
+                                        </div>
+                                        <div class="activity-feed-list">
+                                            <div class="activity-item">
+                                                <div class="activity-user-img">ZM</div>
+                                                <div class="activity-details">
+                                                    <div class="activity-title">Zain Malik</div>
+                                                    <div class="activity-sub">Platinum VIP • Alex Rivera</div>
+                                                </div>
+                                                <span class="status-pill active">NEW</span>
+                                            </div>
+                                            <div class="activity-item">
+                                                <div class="activity-user-img">EW</div>
+                                                <div class="activity-details">
+                                                    <div class="activity-title">Emily Watson</div>
+                                                    <div class="activity-sub">Corporate Elite • Elena Rostova</div>
+                                                </div>
+                                                <span class="status-pill active">NEW</span>
+                                            </div>
+                                            <div class="activity-item">
+                                                <div class="activity-user-img">DC</div>
+                                                <div class="activity-details">
+                                                    <div class="activity-title">David Chen</div>
+                                                    <div class="activity-sub">Platinum VIP • Alex Rivera</div>
+                                                </div>
+                                                <span class="status-pill active">NEW</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="section-card">
+                                        <div class="section-header-flex">
+                                            <h3>💰 Recent Payments</h3>
+                                            <a href="#" class="view-all-link" onclick="GymApp.switchTab('payments')">View All</a>
+                                        </div>
+                                        <div class="activity-feed-list">
+                                            <div class="activity-item">
+                                                <div class="activity-details">
+                                                    <div class="activity-title">INV-2026-001 • Zain Malik</div>
+                                                    <div class="activity-sub">Platinum VIP Membership</div>
+                                                </div>
+                                                <div style="font-weight: 800; color: var(--primary);">$149.00</div>
+                                            </div>
+                                            <div class="activity-item">
+                                                <div class="activity-details">
+                                                    <div class="activity-title">INV-2026-002 • David Chen</div>
+                                                    <div class="activity-sub">Platinum VIP Membership</div>
+                                                </div>
+                                                <div style="font-weight: 800; color: var(--primary);">$149.00</div>
+                                            </div>
+                                            <div class="activity-item">
+                                                <div class="activity-details">
+                                                    <div class="activity-title">INV-2026-003 • Emily Watson</div>
+                                                    <div class="activity-sub">Corporate Elite Pass</div>
+                                                </div>
+                                                <div style="font-weight: 800; color: var(--primary);">$119.00</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- ---------------------------------------
+                             SUBVIEW 2: MEMBERS MODULE
+                        ---------------------------------------- -->
+                        <div id="subview-members" class="app-subview" style="display: none;">
+                            <div class="module-header">
+                                <div class="module-title-area">
+                                    <h2>Gym Members Management</h2>
+                                    <p>1,248 Total Registered Members • 1,085 Active Subscriptions</p>
+                                </div>
+                                <button class="action-btn-primary">+ Register New Member</button>
+                            </div>
+
+                            <div class="module-filter-bar">
+                                <input type="text" class="search-input filter-input-search" placeholder="Filter members by name, email, ID or plan...">
+                                <select class="filter-select">
+                                    <option value="all">All Membership Plans</option>
+                                    <option value="platinum">Platinum VIP</option>
+                                    <option value="gold">Gold Fitness</option>
+                                    <option value="basic">Basic Tier</option>
+                                </select>
+                                <select class="filter-select">
+                                    <option value="all">Status: All</option>
+                                    <option value="active">Active</option>
+                                    <option value="expiring">Expiring Soon</option>
+                                    <option value="inactive">Inactive</option>
+                                </select>
+                            </div>
+
+                            <div class="table-responsive-container">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Member Name</th>
+                                            <th>Member ID</th>
+                                            <th>Membership Plan</th>
+                                            <th>Status</th>
+                                            <th>Visits</th>
+                                            <th>Expiry Date</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="members-table-body">
+                                        <!-- Injected via JS -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- ---------------------------------------
+                             SUBVIEW 3: TRAINERS MODULE
+                        ---------------------------------------- -->
+                        <div id="subview-trainers" class="app-subview" style="display: none;">
+                            <div class="module-header">
+                                <div class="module-title-area">
+                                    <h2>Certified Trainers & Fitness Staff</h2>
+                                    <p>4 Active Personal Trainers • 81 Assigned Clients</p>
+                                </div>
+                                <button class="action-btn-primary">+ Add New Trainer</button>
+                            </div>
+
+                            <div id="trainers-grid-container" class="summary-cards-grid" style="grid-template-columns: repeat(4, 1fr);">
+                                <!-- Injected via JS -->
+                            </div>
+                        </div>
+
+                        <!-- ---------------------------------------
+                             SUBVIEW 4: ATTENDANCE MODULE
+                        ---------------------------------------- -->
+                        <div id="subview-attendance" class="app-subview" style="display: none;">
+                            <div class="module-header">
+                                <div class="module-title-area">
+                                    <h2>Attendance Logs & Floor Activity</h2>
+                                    <p>142 Total Check-Ins Today • Real-time Badge Stream</p>
+                                </div>
+                                <button class="action-btn-primary trigger-quick-checkin">🔍 Desk Check-In Scan</button>
+                            </div>
+
+                            <div class="table-responsive-container">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Log ID</th>
+                                            <th>Member Name</th>
+                                            <th>Membership Plan</th>
+                                            <th>Time In</th>
+                                            <th>Scan Method</th>
+                                            <th>Floor Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="attendance-table-body">
+                                        <!-- Injected via JS -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- ---------------------------------------
+                             SUBVIEW 5: MEMBERSHIP PLANS
+                        ---------------------------------------- -->
+                        <div id="subview-plans" class="app-subview" style="display: none;">
+                            <div class="module-header">
+                                <div class="module-title-area">
+                                    <h2>Membership Pricing Plans & Tiers</h2>
+                                    <p>Configure subscription pricing, access perks, and duration rules</p>
+                                </div>
+                                <button class="action-btn-primary">+ Create New Plan</button>
+                            </div>
+
+                            <div id="plans-grid-container" class="summary-cards-grid" style="grid-template-columns: repeat(4, 1fr);">
+                                <!-- Injected via JS -->
+                            </div>
+                        </div>
+
+                        <!-- ---------------------------------------
+                             SUBVIEW 6: PAYMENTS & FINANCIALS
+                        ---------------------------------------- -->
+                        <div id="subview-payments" class="app-subview" style="display: none;">
+                            <div class="module-header">
+                                <div class="module-title-area">
+                                    <h2>Payments & Financial Ledger</h2>
+                                    <p>$48,650 Monthly Recurring Revenue • Invoice History</p>
+                                </div>
+                                <button class="action-btn-primary">+ New Invoice</button>
+                            </div>
+
+                            <div class="table-responsive-container">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Invoice #</th>
+                                            <th>Member</th>
+                                            <th>Plan Reference</th>
+                                            <th>Amount</th>
+                                            <th>Payment Method</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="payments-table-body">
+                                        <!-- Injected via JS -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- ---------------------------------------
+                             SUBVIEW 7: EQUIPMENT INVENTORY
+                        ---------------------------------------- -->
+                        <div id="subview-equipment" class="app-subview" style="display: none;">
+                            <div class="module-header">
+                                <div class="module-title-area">
+                                    <h2>Gym Equipment & Asset Manager</h2>
+                                    <p>Track machines, free weights, and service maintenance schedules</p>
+                                </div>
+                                <button class="action-btn-primary">+ Register Equipment</button>
+                            </div>
+
+                            <div class="table-responsive-container">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Asset ID</th>
+                                            <th>Equipment Name</th>
+                                            <th>Category</th>
+                                            <th>Status</th>
+                                            <th>Last Serviced</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="equipment-table-body">
+                                        <!-- Injected via JS -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- ---------------------------------------
+                             SUBVIEW 8: REPORTS & ANALYTICS
+                        ---------------------------------------- -->
+                        <div id="subview-reports" class="app-subview" style="display: none;">
+                            <div class="module-header">
+                                <div class="module-title-area">
+                                    <h2>Reports & Export Center</h2>
+                                    <p>Export attendance logs, financial audit trails, and member retention metrics</p>
+                                </div>
+                                <button class="action-btn-primary">📥 Download Full Executive Report (PDF)</button>
+                            </div>
+
+                            <div class="summary-cards-grid" style="grid-template-columns: repeat(3, 1fr);">
+                                <div class="summary-card" style="padding: 24px;">
+                                    <h3>📊 Monthly Revenue Audit</h3>
+                                    <p style="font-size: 0.84rem; color: var(--text-muted); margin: 8px 0 16px;">Comprehensive breakdown of plan subscriptions, PT fees, and guest passes.</p>
+                                    <button class="action-btn-secondary" onclick="alert('Exporting CSV Financial Audit...')">Export CSV</button>
+                                </div>
+                                <div class="summary-card" style="padding: 24px;">
+                                    <h3>🏃 Attendance Peak Capacity Report</h3>
+                                    <p style="font-size: 0.84rem; color: var(--text-muted); margin: 8px 0 16px;">Hourly floor load data for optimizing staff schedules and group classes.</p>
+                                    <button class="action-btn-secondary" onclick="alert('Exporting Attendance Report...')">Export CSV</button>
+                                </div>
+                                <div class="summary-card" style="padding: 24px;">
+                                    <h3>⚠️ Member Churn Risk Analysis</h3>
+                                    <p style="font-size: 0.84rem; color: var(--text-muted); margin: 8px 0 16px;">List of members with low attendance frequency at risk of cancellation.</p>
+                                    <button class="action-btn-secondary" onclick="alert('Exporting Churn Risk Report...')">Export CSV</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ---------------------------------------
+                             SUBVIEW 9: SYSTEM SETTINGS
+                        ---------------------------------------- -->
+                        <div id="subview-settings" class="app-subview" style="display: none;">
+                            <div class="module-header">
+                                <div class="module-title-area">
+                                    <h2>Gym ERP System Settings</h2>
+                                    <p>Configure club profile, owners credentials, staff permissions, and RFID integration</p>
+                                </div>
+                            </div>
+
+                            <div class="section-card" style="max-width: 720px;">
+                                <h3 style="margin-bottom: 16px;">Club Profile & Owners</h3>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
+                                    <div>
+                                        <label class="form-label">Gym Name</label>
+                                        <input type="text" class="form-input" value="IronPulse Fitness Club">
+                                    </div>
+                                    <div>
+                                        <label class="form-label">System Owners</label>
+                                        <input type="text" class="form-input" value="Khizer & Ahad" readonly>
+                                    </div>
+                                </div>
+                                <div style="margin-bottom: 20px;">
+                                    <label class="form-label">Branch Address</label>
+                                    <input type="text" class="form-input" value="100 Commercial Boulevard, Suite 400">
+                                </div>
+                                <button class="action-btn-primary" onclick="alert('Settings saved successfully!')">Save Configuration</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </main>
+
+            </div>
+        </section>
+
+        <!-- ==========================================
+             3. RECEPTIONIST QUICK CHECK-IN MODAL
+        =========================================== -->
+        <div id="modal-checkin" class="modal-overlay">
+            <div class="modal-box">
+                <div class="modal-header">
+                    <h3>⚡ Receptionist Quick Check-In Scanner</h3>
+                    <button id="close-checkin-modal" class="modal-close-btn">✕</button>
+                </div>
+
+                <div class="scanner-container">
+                    <div class="scanner-animation-ring">📡</div>
+                    <p style="font-size: 0.9rem; font-weight: 700; color: var(--text-main);">Ready for RFID / Barcode Scan</p>
+                    <p style="font-size: 0.78rem; color: var(--text-muted);">Tap member card or enter Member ID below</p>
+                </div>
+
+                <form id="quick-checkin-form">
+                    <div class="form-group" style="margin-bottom: 16px;">
+                        <label class="form-label">Member ID / Name Lookup</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon-left">🆔</span>
+                            <input type="text" id="checkin-member-id" class="form-input" placeholder="e.g. MEM-8091 or Zain" required>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+                        <button type="button" class="preset-btn demo-scan-btn" data-id="MEM-8091">Scan Zain Malik</button>
+                        <button type="button" class="preset-btn demo-scan-btn" data-id="MEM-8094">Scan Emily Watson</button>
+                        <button type="button" class="preset-btn demo-scan-btn" data-id="MEM-8095">Scan David Chen</button>
+                    </div>
+
+                    <button type="submit" class="action-btn-primary" style="width: 100%; justify-content: center; padding: 14px;">
+                        Check-In Member (Simulate RFID Beep)
+                    </button>
+                </form>
+
+                <div id="checkin-result-card" class="checkin-result-card">
+                    <div id="checkin-member-details" style="width: 100%;">
+                        <!-- Dynamic Result Content -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Application Engine Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/checkin.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

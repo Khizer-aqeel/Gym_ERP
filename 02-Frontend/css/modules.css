@@ -1,0 +1,254 @@
+/* Sub-Modules, Data Tables, Modals & UI Components for Gym ERP */
+
+/* Module Header Controls */
+.module-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.module-title-area h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.5px;
+}
+.module-title-area p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+}
+
+.module-filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--bg-card);
+    padding: 14px 18px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.filter-input-search {
+    flex: 1;
+    min-width: 220px;
+    position: relative;
+}
+
+.filter-select {
+    padding: 10px 14px;
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-main);
+    font-size: 0.85rem;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Custom Data Table Container */
+.table-responsive-container {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.88rem;
+}
+
+.data-table th {
+    background: var(--bg-surface);
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.data-table td {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-main);
+    vertical-align: middle;
+}
+
+.data-table tbody tr {
+    transition: background-color var(--transition-fast);
+}
+.data-table tbody tr:hover {
+    background-color: var(--bg-card-hover);
+}
+
+.member-cell-flex {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.table-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--primary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #000;
+    font-size: 0.85rem;
+}
+
+.table-member-info h4 {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+.table-member-info span {
+    font-size: 0.76rem;
+    color: var(--text-muted);
+}
+
+/* Status Badges */
+.status-pill {
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.status-pill.active { background: rgba(16, 185, 129, 0.15); color: var(--primary); border: 1px solid rgba(16, 185, 129, 0.3); }
+.status-pill.expiring { background: rgba(245, 158, 11, 0.15); color: var(--accent-amber); border: 1px solid rgba(245, 158, 11, 0.3); }
+.status-pill.inactive { background: rgba(239, 68, 68, 0.15); color: var(--accent-red); border: 1px solid rgba(239, 68, 68, 0.3); }
+.status-pill.pending { background: rgba(59, 130, 246, 0.15); color: var(--accent-blue); border: 1px solid rgba(59, 130, 246, 0.3); }
+.status-pill.vip { background: rgba(139, 92, 246, 0.15); color: var(--accent-purple); border: 1px solid rgba(139, 92, 246, 0.3); }
+
+/* Table Action Buttons */
+.table-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.btn-icon-action {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+.btn-icon-action:hover {
+    background: var(--bg-card-hover);
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+/* Modals & Overlays */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(8, 12, 20, 0.82);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.modal-overlay.active {
+    display: flex;
+    animation: fadeIn 0.2s ease-out forwards;
+}
+
+.modal-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    width: 100%;
+    max-width: 540px;
+    padding: 28px;
+    box-shadow: var(--shadow-md);
+    position: relative;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.modal-header h3 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text-main);
+}
+.modal-close-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+.modal-close-btn:hover { color: var(--accent-red); }
+
+/* Check-in Scanner Modal */
+.scanner-container {
+    background: var(--bg-surface);
+    border: 2px dashed var(--primary);
+    border-radius: var(--radius-md);
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.scanner-animation-ring {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    background: rgba(16, 185, 129, 0.12);
+    border: 2px solid var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--primary);
+    animation: scannerPulse 1.5s infinite alternate;
+}
+
+@keyframes scannerPulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+    100% { transform: scale(1.05); box-shadow: 0 0 0 16px rgba(16, 185, 129, 0); }
+}
+
+.checkin-result-card {
+    display: none;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid var(--primary);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    align-items: center;
+    gap: 16px;
+    margin-top: 16px;
+}
+.checkin-result-card.active {
+    display: flex;
+}
