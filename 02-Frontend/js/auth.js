@@ -18,14 +18,14 @@ const Auth = {
             username: "khizer@gymerp.com",
             password: "password123",
             name: "Khizer",
-            role: "Owner & Super Admin",
+            role: "Co-Owner & Super Admin",
             avatar: "K"
         },
         ahad: {
             username: "ahad@gymerp.com",
             password: "password123",
             name: "Ahad",
-            role: "General Manager",
+            role: "Co-Owner & Super Admin",
             avatar: "A"
         },
         receptionist: {
