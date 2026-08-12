@@ -1,27 +1,33 @@
-/* Commercial Dashboard Layout & Component Styles */
+/* Refined Rationalism Dashboard Styles — IRON CORE ERP Standard */
 
 .dashboard-view-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 24px;
+    max-width: 1600px;
+    margin: 0 auto;
 }
 
-/* Header Greeting Section */
+/* Header Greeting & Controls */
 .dashboard-header-flex {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
+    gap: 16px;
 }
 
 .dashboard-title-area h2 {
+    font-family: var(--font-headline);
     font-size: 1.6rem;
     font-weight: 800;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.02em;
     color: var(--text-main);
+    line-height: 1.2;
 }
 
 .dashboard-title-area p {
-    font-size: 0.88rem;
+    font-family: var(--font-body);
+    font-size: 0.86rem;
     color: var(--text-muted);
     margin-top: 2px;
 }
@@ -29,15 +35,16 @@
 .header-action-group {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
 }
 
 .date-range-badge {
-    background: var(--bg-card);
+    background: var(--surface-container-lowest);
     border: 1px solid var(--border-color);
-    padding: 8px 14px;
-    border-radius: var(--radius-md);
-    font-size: 0.84rem;
+    padding: 7px 14px;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
     color: var(--text-muted);
     display: flex;
     align-items: center;
@@ -45,68 +52,65 @@
 }
 
 .action-btn-secondary {
-    background: var(--bg-card);
+    background: var(--surface-container-lowest);
     border: 1px solid var(--border-color);
     color: var(--text-main);
-    padding: 10px 16px;
-    border-radius: var(--radius-md);
+    padding: 7px 14px;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-headline);
     font-weight: 600;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     transition: all var(--transition-fast);
 }
+
 .action-btn-secondary:hover {
-    background: var(--bg-card-hover);
-    border-color: var(--border-glass);
+    background: var(--surface-container-low);
+    border-color: var(--primary);
+    color: var(--primary);
 }
 
-.action-btn-primary {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
-    border: none;
-    color: #080C14;
-    padding: 10px 18px;
-    border-radius: var(--radius-md);
-    font-weight: 700;
-    font-size: 0.85rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    box-shadow: var(--shadow-glow);
-    transition: all var(--transition-fast);
-}
-.action-btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
-}
-
-/* 1. Summary Cards Grid (5 Cards) */
+/* 1. Module 1: Financial Overview (KPIs - 4 Cards) */
 .summary-cards-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
 .summary-card {
-    background: var(--bg-card);
+    background: var(--surface-container-lowest);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-sm);
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
     overflow: hidden;
-    transition: all var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+    transition: border-color var(--transition-fast), transform var(--transition-fast);
 }
 
 .summary-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--border-highlight);
-    box-shadow: var(--shadow-md);
+    border-color: var(--primary);
+    transform: translateY(-1px);
+}
+
+/* Highlighted Signal Red Monthly Revenue Card (PRD spec) */
+.summary-card.monthly-revenue {
+    background: var(--surface-container-lowest);
+    border: 1px solid var(--primary);
+}
+
+.summary-card.monthly-revenue::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--primary);
 }
 
 .summary-card-top {
@@ -117,152 +121,230 @@
 }
 
 .card-label {
-    font-size: 0.82rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
     font-weight: 600;
     color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .card-icon-avatar {
-    width: 42px;
-    height: 42px;
-    border-radius: var(--radius-md);
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+    background: var(--surface-container-low);
+    border: 1px solid var(--border-color);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.25rem;
+    color: var(--primary);
 }
 
-.summary-card.total-members .card-icon-avatar { background: rgba(59, 130, 246, 0.12); color: var(--accent-blue); }
-.summary-card.active-members .card-icon-avatar { background: rgba(16, 185, 129, 0.12); color: var(--primary); }
-.summary-card.today-attendance .card-icon-avatar { background: rgba(6, 182, 212, 0.12); color: var(--accent-cyan); }
-.summary-card.expiring-memberships .card-icon-avatar { background: rgba(245, 158, 11, 0.12); color: var(--accent-amber); }
-.summary-card.monthly-revenue .card-icon-avatar { background: rgba(139, 92, 246, 0.12); color: var(--accent-purple); }
+.summary-card.monthly-revenue .card-icon-avatar {
+    background: var(--primary-container);
+    color: var(--primary);
+    border-color: var(--primary);
+}
 
 .card-value {
-    font-size: 1.85rem;
+    font-family: var(--font-headline);
+    font-size: 1.75rem;
     font-weight: 800;
-    letter-spacing: -0.5px;
     color: var(--text-main);
     line-height: 1.1;
-    margin-bottom: 8px;
+}
+
+.summary-card.monthly-revenue .card-value {
+    color: var(--primary);
 }
 
 .card-trend-footer {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.78rem;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border-color);
 }
 
 .trend-pill {
     padding: 2px 8px;
     border-radius: var(--radius-full);
+    font-family: var(--font-headline);
+    font-size: 0.7rem;
     font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 4px;
 }
-.trend-pill.up { background: rgba(16, 185, 129, 0.15); color: var(--primary); }
-.trend-pill.warning { background: rgba(245, 158, 11, 0.15); color: var(--accent-amber); }
-.trend-pill.down { background: rgba(239, 68, 68, 0.15); color: var(--accent-red); }
+
+.trend-pill.up { background: rgba(230, 57, 70, 0.1); color: var(--primary); }
+.trend-pill.warning { background: var(--error-container); color: var(--error); }
 
 .trend-subtext {
+    font-size: 0.75rem;
     color: var(--text-subtle);
 }
 
-/* 2. Charts Grid Layout */
+/* 2. Visual Analytics & Charts Section (YTD Trajectory & Segments) */
 .charts-layout-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1.6fr 1fr;
     gap: 20px;
 }
 
 .chart-card {
-    background: var(--bg-card);
+    background: var(--surface-container-lowest);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
-    padding: 24px;
+    border-radius: var(--radius-sm);
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
     display: flex;
     flex-direction: column;
 }
 
 .chart-header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     margin-bottom: 20px;
 }
 
 .chart-title-box h3 {
+    font-family: var(--font-headline);
     font-size: 1.05rem;
     font-weight: 700;
     color: var(--text-main);
 }
+
 .chart-title-box p {
     font-size: 0.78rem;
     color: var(--text-muted);
+    margin-top: 2px;
 }
 
 .chart-filter-pills {
     display: flex;
-    gap: 6px;
-    background: var(--bg-surface);
-    padding: 4px;
-    border-radius: var(--radius-md);
+    gap: 4px;
+    background: var(--surface-container-low);
+    padding: 3px;
+    border-radius: var(--radius-sm);
     border: 1px solid var(--border-color);
 }
 
 .chart-filter-btn {
-    padding: 4px 10px;
-    font-size: 0.76rem;
-    font-weight: 600;
-    border-radius: var(--radius-sm);
-    color: var(--text-muted);
     background: transparent;
     border: none;
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-headline);
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-muted);
     cursor: pointer;
     transition: all var(--transition-fast);
 }
+
 .chart-filter-btn.active {
-    background: var(--bg-card);
-    color: var(--primary);
-    box-shadow: var(--shadow-sm);
+    background: var(--primary);
+    color: var(--on-primary);
+    font-weight: 700;
 }
 
 .canvas-container {
+    height: 230px;
     position: relative;
     width: 100%;
-    height: 260px;
 }
 
-canvas {
-    width: 100% !important;
-    height: 100% !important;
+/* Member Segments Module (PRD Spec: Basic, Silver, Gold) */
+.segment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 12px;
 }
 
-/* Two Column Bottom Grid */
+.segment-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.segment-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    font-family: var(--font-headline);
+}
+
+.segment-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.segment-color-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.dot-basic { background: var(--secondary); }
+.dot-silver { background: var(--tertiary); }
+.dot-gold { background: var(--primary); }
+
+.segment-value {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.segment-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--surface-container-low);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+.segment-bar-fill {
+    height: 100%;
+    border-radius: var(--radius-sm);
+    transition: width 0.3s ease;
+}
+
+.fill-basic { background: var(--secondary); width: 54%; }
+.fill-silver { background: var(--tertiary); width: 36%; }
+.fill-gold { background: var(--primary); width: 10%; }
+
+/* 3. System Alerts & Attendance Pulse (PRD Spec) */
 .dashboard-bottom-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1.4fr 1fr;
     gap: 20px;
 }
 
 .section-card {
-    background: var(--bg-card);
+    background: var(--surface-container-lowest);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
+    border-radius: var(--radius-sm);
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
 }
 
 .section-header-flex {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
 }
+
 .section-header-flex h3 {
+    font-family: var(--font-headline);
     font-size: 1rem;
     font-weight: 700;
     color: var(--text-main);
@@ -271,90 +353,108 @@ canvas {
     gap: 8px;
 }
 
+.alerts-count-badge {
+    background: var(--primary);
+    color: var(--on-primary);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+}
+
 .view-all-link {
-    font-size: 0.8rem;
+    font-family: var(--font-headline);
+    font-size: 0.78rem;
+    font-weight: 700;
     color: var(--primary);
     text-decoration: none;
-    font-weight: 600;
 }
-.view-all-link:hover { text-decoration: underline; }
 
-/* Activity Stream List */
-.activity-feed-list {
+.view-all-link:hover {
+    text-decoration: underline;
+}
+
+/* Real-Time Attendance Pulse Data Table (PRD Spec) */
+.attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+    text-align: left;
+}
+
+.attendance-table th {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--surface-container-low);
+}
+
+.attendance-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-main);
+}
+
+.attendance-table tr:last-child td {
+    border-bottom: none;
+}
+
+.tier-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.tier-gold { background: var(--primary-container); color: var(--primary); }
+.tier-silver { background: var(--surface-container-high); color: var(--text-main); }
+.tier-basic { background: var(--surface-container-low); color: var(--text-muted); }
+
+/* System Alerts Feed */
+.alerts-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
 }
 
-.activity-item {
+.alert-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 12px;
-    padding: 10px;
-    border-radius: var(--radius-md);
-    background: var(--bg-surface);
+    padding: 12px;
+    background: var(--surface-container-low);
     border: 1px solid var(--border-color);
-    transition: border-color var(--transition-fast);
-}
-.activity-item:hover {
-    border-color: var(--border-glass);
+    border-left: 3px solid var(--primary);
+    border-radius: var(--radius-sm);
 }
 
-.activity-user-img {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    object-fit: cover;
-    background: var(--bg-card-hover);
+.alert-icon {
+    color: var(--primary);
     display: flex;
     align-items: center;
-    justify-content: center;
+    margin-top: 2px;
+}
+
+.alert-content {
+    flex: 1;
+}
+
+.alert-title {
+    font-family: var(--font-headline);
     font-weight: 700;
-    font-size: 0.85rem;
-    color: var(--primary);
-    flex-shrink: 0;
-}
-
-.activity-details {
-    flex-grow: 1;
-    overflow: hidden;
-}
-
-.activity-title {
     font-size: 0.84rem;
-    font-weight: 700;
     color: var(--text-main);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.activity-sub {
-    font-size: 0.74rem;
-    color: var(--text-subtle);
 }
 
-.activity-time-badge {
-    font-size: 0.72rem;
-    color: var(--text-subtle);
-    font-weight: 500;
-    flex-shrink: 0;
-}
-
-/* Responsiveness */
-@media (max-width: 1400px) {
-    .summary-cards-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .charts-layout-grid {
-        grid-template-columns: 1fr;
-    }
-    .dashboard-bottom-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 900px) {
-    .summary-cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.alert-sub {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 2px;
 }

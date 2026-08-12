@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap');
+
+/* =============================================
+   GYM ERP — OBJECTIVE RATIONALISM DESIGN SYSTEM
+   Preset: Design.md (Swiss Design & Signal Red)
+   ============================================= */
+
+:root {
+  /* ── Objective Rationalism Surfaces (Cool Grays & Pure White) ── */
+  --color-bg:              #f8f9fa;
+  --color-bg-card:         #ffffff;
+  --color-bg-card-hover:   #f3f4f5;
+  --color-bg-surface:      #eeeeee;
+  --color-bg-input:        #ffffff;
+  --color-bg-sidebar:      #f3f4f5;
+
+  /* ── Typography Colors (Ink & Slate) ── */
+  --color-text-main:       #1a1a1a;
+  --color-text-muted:      #4a4a4a;
+  --color-text-subtle:     #71717a;
+  --color-text-inverse:    #f8f9fa;
+
+  /* ── Outlines & Hairlines ── */
+  --color-border:          #e2e2e2;
+  --color-border-strong:   #1a1a1a;
+  --color-border-focus:    #e63946;
+
+  /* ── PRIMARY ACCENT: Signal Red (#e63946) ── */
+  --color-primary:         #e63946;
+  --color-primary-hover:   #c92a37;
+  --color-primary-dark:    #9e1b24;
+  --color-primary-light:   #ffdadb;
+  --color-primary-bg:      rgba(230, 57, 70, 0.1);
+  --color-primary-border:  rgba(230, 57, 70, 0.3);
+
+  /* ── SECONDARY / CHARCOAL (#1a1a1a) ── */
+  --color-secondary:       #1a1a1a;
+  --color-secondary-hover: #333333;
+  --color-secondary-bg:    #e2e2e2;
+  --color-secondary-border:#1a1a1a;
+
+  /* ── SUCCESS / ACTIVE (#0d7d4d) ── */
+  --color-success:         #0d7d4d;
+  --color-success-hover:   #0a633d;
+  --color-success-bg:      #e6f7ef;
+  --color-success-border:  #0d7d4d;
+
+  /* ── WARNING / PENDING (#b86e00) ── */
+  --color-warning:         #b86e00;
+  --color-warning-hover:   #945800;
+  --color-warning-bg:      #fff3e0;
+  --color-warning-border:  #b86e00;
+
+  /* ── DANGER / ERROR (#ba1a1a) ── */
+  --color-danger:          #ba1a1a;
+  --color-danger-hover:    #93000a;
+  --color-danger-bg:       #ffdad6;
+  --color-danger-border:   #ba1a1a;
+
+  /* ── INFO / TELEMETRY (#2b4c7e) ── */
+  --color-info:            #2b4c7e;
+  --color-info-hover:      #203960;
+  --color-info-bg:         #ebf2fa;
+  --color-info-border:     #2b4c7e;
+
+  /* ── Typography Scale & Stack ── */
+  --font-family:           'Hanken Grotesk', 'Roboto', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family-headline:  'Hanken Grotesk', 'Inter', -apple-system, sans-serif;
+  --font-family-mono:      'JetBrains Mono', monospace;
+
+  --font-size-caption:     12px;
+  --font-size-table:       14px;
+  --font-size-body:        16px;
+  --font-size-card-title:  18px;
+  --font-size-section:     24px;
+  --font-size-title:       32px;
+
+  --font-size-xs:          0.75rem;   /* 12px */
+  --font-size-sm:          0.875rem;  /* 14px */
+  --font-size-md:          1rem;      /* 16px */
+  --font-size-base:        1rem;      /* 16px */
+  --font-size-lg:          1.125rem;  /* 18px */
+  --font-size-xl:          1.25rem;   /* 20px */
+  --font-size-2xl:         1.5rem;    /* 24px */
+  --font-size-3xl:         2rem;      /* 32px */
+  --font-size-4xl:         3rem;      /* 48px */
+
+  --font-weight-regular:   400;
+  --font-weight-medium:    500;
+  --font-weight-semibold:  600;
+  --font-weight-bold:      700;
+
+  --line-height-tight:     1.2;
+  --line-height-snug:      1.35;
+  --line-height-normal:    1.5;
+  --line-height-relaxed:   1.65;
+
+  /* ── Objective Rationalism Border Radius (Strictly 0px Sharp Edges) ── */
+  --radius-btn:            0px;
+  --radius-input:          0px;
+  --radius-card:           0px;
+  --radius-dialog:         0px;
+  --radius-table:          0px;
+  --radius-dropdown:       0px;
+
+  --radius-xs:             0px;
+  --radius-sm:             0px;
+  --radius-md:             0px;
+  --radius-lg:             0px;
+  --radius-xl:             0px;
+  --radius-full:           0px;
+
+  /* ── Zero-Elevation Model (Flat / Tonal & Hairline Outlines) ── */
+  --shadow-card:           none;
+  --shadow-dialog:         0 4px 20px rgba(0, 0, 0, 0.15);
+  --shadow-dropdown:       0 2px 8px rgba(0, 0, 0, 0.1);
+
+  --shadow-sm:             none;
+  --shadow-md:             none;
+  --shadow-lg:             none;
+
+  /* ── Spatial Scale (8px Base Unit) ── */
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-5:   24px;
+  --space-6:   32px;
+  --space-8:   48px;
+
+  /* ── Transitions ── */
+  --transition-fast:       150ms ease;
+  --transition-base:       200ms ease;
+
+  /* ── Layout Metric Tokens ── */
+  --sidebar-width:         256px;
+  --sidebar-collapsed:     72px;
+  --topbar-height:         64px;
+}

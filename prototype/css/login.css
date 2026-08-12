@@ -1,4 +1,4 @@
-/* Commercial Login Screen Styling for Gym ERP */
+/* Commercial Login Screen Styling for Gym ERP — Kinetic Industrial Theme */
 
 .login-page-wrapper {
     display: flex;
@@ -11,11 +11,7 @@
 /* Left Hero Branding Panel */
 .login-hero-panel {
     flex: 1.2;
-    background: linear-gradient(135deg, rgba(8, 12, 20, 0.94) 0%, rgba(15, 23, 42, 0.88) 100%),
-                radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.25) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.2) 0%, transparent 50%);
-    background-size: cover;
-    background-position: center;
+    background: #131313;
     border-right: 1px solid var(--border-color);
     padding: 60px;
     display: flex;
@@ -27,7 +23,7 @@
 .login-hero-overlay {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.05), transparent 70%);
+    background: radial-gradient(circle at 20% 20%, rgba(255, 225, 53, 0.08) 0%, transparent 60%);
     pointer-events: none;
 }
 
@@ -41,30 +37,33 @@
 .hero-logo-box {
     width: 52px;
     height: 52px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--accent-cyan) 100%);
-    border-radius: var(--radius-md);
+    background: var(--primary);
+    border-radius: 0px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 26px;
-    color: #080C14;
+    color: var(--on-primary);
     font-weight: 800;
-    box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+    box-shadow: var(--shadow-glow);
+    border: 1px solid var(--border-highlight);
 }
 
 .hero-brand-titles h1 {
-    font-size: 1.6rem;
+    font-family: var(--font-headline);
+    font-size: 1.8rem;
     font-weight: 800;
-    letter-spacing: -0.5px;
-    color: #fff;
+    letter-spacing: -0.02em;
+    color: var(--text-main);
     line-height: 1.1;
 }
 
 .hero-brand-titles span {
-    font-size: 0.82rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
     color: var(--primary);
     font-weight: 600;
-    letter-spacing: 1px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
 }
 
@@ -74,17 +73,17 @@
 }
 
 .hero-tagline {
+    font-family: var(--font-headline);
     font-size: 2.5rem;
-    font-weight: 800;
+    font-weight: 700;
     line-height: 1.2;
-    letter-spacing: -1px;
+    letter-spacing: -0.02em;
     margin-bottom: 20px;
-    background: linear-gradient(135deg, #FFFFFF 0%, #94A3B8 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--text-main);
 }
 
 .hero-description {
+    font-family: var(--font-body);
     font-size: 1.05rem;
     color: var(--text-muted);
     line-height: 1.6;
@@ -99,11 +98,10 @@
 }
 
 .hero-feature-card {
-    background: rgba(15, 23, 42, 0.6);
-    backdrop-filter: blur(12px);
+    background: var(--surface-container-low);
     border: 1px solid var(--border-color);
     padding: 16px;
-    border-radius: var(--radius-md);
+    border-radius: 0px;
     display: flex;
     align-items: flex-start;
     gap: 12px;
@@ -112,9 +110,10 @@
 .feature-icon-box {
     width: 36px;
     height: 36px;
-    border-radius: var(--radius-sm);
-    background: rgba(16, 185, 129, 0.12);
+    border-radius: 0px;
+    background: rgba(255, 225, 53, 0.12);
     color: var(--primary);
+    border: 1px solid rgba(255, 225, 53, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -123,13 +122,15 @@
 }
 
 .feature-text h4 {
+    font-family: var(--font-headline);
     font-size: 0.9rem;
     font-weight: 700;
     color: var(--text-main);
 }
 .feature-text p {
+    font-family: var(--font-body);
     font-size: 0.78rem;
-    color: var(--text-subtle);
+    color: var(--text-muted);
 }
 
 .hero-footer-owners {
@@ -152,22 +153,23 @@
 .owner-avatar-circle {
     width: 32px;
     height: 32px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent-cyan), var(--primary));
-    border: 2px solid var(--bg-dark);
+    border-radius: 0px;
+    background: var(--primary);
+    border: 1px solid var(--border-color);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 0.75rem;
     font-weight: 800;
-    color: #000;
-    margin-left: -8px;
+    color: var(--on-primary);
+    margin-left: -4px;
 }
 .owner-avatar-circle:first-child {
     margin-left: 0;
 }
 
 .owners-text {
+    font-family: var(--font-mono);
     font-size: 0.82rem;
     color: var(--text-muted);
 }
@@ -189,12 +191,11 @@
 .login-card {
     width: 100%;
     max-width: 440px;
-    background: var(--bg-card);
+    background: var(--surface-container-low);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
+    border-radius: 0px;
     padding: 40px;
     box-shadow: var(--shadow-md);
-    backdrop-filter: blur(20px);
 }
 
 .login-header-text {
@@ -202,13 +203,15 @@
 }
 
 .login-header-text h2 {
+    font-family: var(--font-headline);
     font-size: 1.75rem;
     font-weight: 800;
     color: var(--text-main);
-    letter-spacing: -0.5px;
+    letter-spacing: -0.01em;
 }
 
 .login-header-text p {
+    font-family: var(--font-body);
     font-size: 0.9rem;
     color: var(--text-muted);
     margin-top: 4px;
@@ -217,17 +220,18 @@
 /* Quick Preset Pills */
 .demo-preset-section {
     margin-bottom: 24px;
-    background: var(--bg-surface);
+    background: var(--surface-container-lowest);
     padding: 12px;
-    border-radius: var(--radius-md);
+    border-radius: 0px;
     border: 1px solid var(--border-color);
 }
 .demo-preset-title {
+    font-family: var(--font-mono);
     font-size: 0.74rem;
     color: var(--text-subtle);
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.1em;
     margin-bottom: 8px;
 }
 .preset-buttons-flex {
@@ -237,10 +241,11 @@
 .preset-btn {
     flex: 1;
     padding: 6px 10px;
-    background: var(--bg-card);
+    background: var(--surface-container-high);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-sm);
+    border-radius: 0px;
     color: var(--text-muted);
+    font-family: var(--font-mono);
     font-size: 0.78rem;
     font-weight: 600;
     cursor: pointer;
@@ -248,8 +253,8 @@
 }
 .preset-btn:hover {
     border-color: var(--primary);
-    color: var(--primary);
-    background: var(--bg-card-hover);
+    color: var(--on-primary);
+    background: var(--primary);
 }
 
 /* Form Controls */
@@ -266,6 +271,7 @@
 }
 
 .form-label {
+    font-family: var(--font-mono);
     font-size: 0.84rem;
     font-weight: 600;
     color: var(--text-main);
@@ -284,8 +290,9 @@
     padding: 12px 16px 12px 42px;
     background: var(--bg-input);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
+    border-radius: 0px;
     color: var(--text-main);
+    font-family: var(--font-mono);
     font-size: 0.92rem;
     outline: none;
     transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
@@ -293,7 +300,7 @@
 
 .form-input:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px var(--primary-glow);
+    box-shadow: 0 0 0 1px var(--primary);
 }
 
 .input-icon-left {
@@ -328,15 +335,18 @@
     gap: 8px;
     cursor: pointer;
     color: var(--text-muted);
+    font-family: var(--font-body);
 }
 .remember-me-checkbox input {
     accent-color: var(--primary);
     width: 16px;
     height: 16px;
     cursor: pointer;
+    border-radius: 0px;
 }
 
 .forgot-password-link {
+    font-family: var(--font-body);
     color: var(--primary);
     text-decoration: none;
     font-weight: 600;
@@ -350,25 +360,27 @@
 .submit-login-btn {
     width: 100%;
     padding: 14px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
-    color: #080C14;
-    font-weight: 800;
+    background: var(--primary);
+    color: var(--on-primary);
+    font-family: var(--font-headline);
+    font-weight: 700;
     font-size: 0.95rem;
-    border: none;
-    border-radius: var(--radius-md);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 1px solid var(--primary-hover);
+    border-radius: 0px;
     cursor: pointer;
     box-shadow: var(--shadow-glow);
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    transition: transform var(--transition-fast), background var(--transition-fast);
     margin-top: 8px;
 }
 
 .submit-login-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+    background: var(--primary-hover);
 }
 
 /* Responsiveness */

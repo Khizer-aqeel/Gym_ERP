@@ -1,74 +1,90 @@
-/* Gym ERP - Design System Variables & Tokens
-   Owners: Khizer and Ahad
+/* Gym ERP - Objective Rationalism Design Tokens (Refined)
+   Preset: DESIGN.md (Swiss Design & Signal Red)
+   Brand: IRON CORE ERP
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 :root {
-    /* Color Palette - Dark Slate / Cyber Emerald Core */
-    --bg-dark: #080C14;
-    --bg-card: #0F172A;
-    --bg-card-hover: #1E293B;
-    --bg-surface: #111827;
-    --bg-input: #1E293B;
-    
-    /* Brand Accent Colors */
-    --primary: #10B981;          /* Electric Emerald */
-    --primary-hover: #059669;
-    --primary-glow: rgba(16, 185, 129, 0.25);
-    
-    --accent-cyan: #06B6D4;      /* Cyber Cyan */
-    --accent-amber: #F59E0B;     /* Warm Amber */
-    --accent-red: #EF4444;       /* Alert Crimson */
-    --accent-purple: #8B5CF6;    /* VIP Violet */
-    --accent-blue: #3B82F6;      /* Tech Blue */
-    
-    /* Text Colors */
-    --text-main: #F8FAFC;
-    --text-muted: #94A3B8;
-    --text-subtle: #64748B;
-    
-    /* Border & Divider Colors */
-    --border-color: rgba(255, 255, 255, 0.08);
-    --border-highlight: rgba(16, 185, 129, 0.3);
-    --border-glass: rgba(255, 255, 255, 0.12);
-    
-    /* Glassmorphism & Shadows */
-    --glass-bg: rgba(15, 23, 42, 0.75);
-    --glass-blur: blur(16px);
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
-    --shadow-glow: 0 0 20px rgba(16, 185, 129, 0.2);
-    
-    /* Fonts & Radii */
-    --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 18px;
+    /* Objective Rationalism Surfaces (Paper & Light Neutral) */
+    --surface: #f8f9fa;
+    --surface-dim: #d9dadb;
+    --surface-bright: #f8f9fa;
+    --surface-container-lowest: #ffffff;
+    --surface-container-low: #f3f4f5;
+    --surface-container: #edeeef;
+    --surface-container-high: #e7e8e9;
+    --surface-container-highest: #e1e3e4;
+
+    --bg-dark: #f8f9fa;
+    --bg-surface: #f3f4f5;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f8f9fa;
+    --bg-input: #ffffff;
+    --bg-sidebar: #ffffff;
+
+    /* Text Colors (Ink & Charcoal) */
+    --on-surface: #191c1d;
+    --on-surface-variant: #5b403f;
+    --text-main: #191c1d;
+    --text-muted: #565e55;
+    --text-subtle: #71717a;
+    --text-inverse: #f8f9fa;
+
+    /* Brand & Accent Colors (Signal Red #E63946) */
+    --primary: #e63946;               /* Signal Red Primary */
+    --primary-orange: #e63946;
+    --primary-yellow: #e63946;
+    --on-primary: #ffffff;
+    --primary-hover: #c92a37;
+    --primary-container: #ffdadb;
+    --on-primary-container: #410006;
+    --primary-glow: rgba(230, 57, 70, 0.15);
+
+    --secondary: #485f84;             /* Deep Steel Blue */
+    --on-secondary: #ffffff;
+    --secondary-container: #bbd3fd;
+    --on-secondary-container: #445a7f;
+
+    --tertiary: #565e55;              /* Slate Concrete */
+    --on-tertiary: #ffffff;
+    --tertiary-container: #6e776d;
+    --on-tertiary-container: #f6fff3;
+
+    --error: #ba1a1a;
+    --on-error: #ffffff;
+    --error-container: #ffdad6;
+    --on-error-container: #93000a;
+
+    --tier-basic: #485f84;
+    --tier-silver: #6e776d;
+    --tier-gold: #e63946;
+
+    /* Outlines & Borders */
+    --outline: #8f6f6e;
+    --outline-variant: #e4bebc;
+    --border-color: #e1e3e4;
+    --border-highlight: #e63946;
+    --border-glass: rgba(25, 28, 29, 0.1);
+
+    /* Elevation & Shadows (Refined Soft Shadow) */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+    --shadow-glow: 0 2px 8px rgba(230, 57, 70, 0.2);
+
+    /* Fonts & Shapes */
+    --font-headline: 'Hanken Grotesk', -apple-system, sans-serif;
+    --font-body: 'Hanken Grotesk', 'Inter', -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-family: var(--font-body);
+
+    /* Refined Rationalism Corner Radius (4px Softened) */
+    --radius-sm: 4px;
+    --radius-md: 4px;
+    --radius-lg: 4px;
     --radius-full: 9999px;
-    
+
     /* Transitions */
     --transition-fast: 0.15s ease;
-    --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-/* Light Theme Support Toggle */
-[data-theme="light"] {
-    --bg-dark: #F1F5F9;
-    --bg-card: #FFFFFF;
-    --bg-card-hover: #F8FAFC;
-    --bg-surface: #F8FAFC;
-    --bg-input: #E2E8F0;
-    
-    --text-main: #0F172A;
-    --text-muted: #475569;
-    --text-subtle: #64748B;
-    
-    --border-color: rgba(0, 0, 0, 0.08);
-    --border-highlight: rgba(16, 185, 129, 0.4);
-    --border-glass: rgba(0, 0, 0, 0.06);
-    
-    --glass-bg: rgba(255, 255, 255, 0.85);
-    --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+    --transition-normal: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
